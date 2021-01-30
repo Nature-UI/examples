@@ -1,5 +1,7 @@
 module.exports = {
-  purge: [],
+  purge: [
+    "src/**/*.tsx"
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -11,8 +13,4 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [
-    "./src/**/*.js*",
-    "./node_modules/@nature-ui/**/*.js*",
-  ],
 }

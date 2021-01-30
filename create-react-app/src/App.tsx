@@ -1,65 +1,36 @@
-import { Box, Image, Badge } from '@nature-ui/core';
-import { StarIcon } from '@nature-ui/icons';
+import React from 'react';
+import { Badge, Box } from '@nature-ui/layout';
+import { Image } from '@nature-ui/image';
+import { IconButton } from '@nature-ui/button';
+import { Hi } from '@nature-ui/icons';
+
 import './tailwind.css';
 
 function App() {
-	const property = {
-		imageUrl: 'https://bit.ly/2Z4KKcF',
-		imageAlt: 'Rear view of modern home with pool',
-		beds: 3,
-		baths: 2,
-		title: 'Modern home in city center in the heart of historic Los Angeles',
-		formattedPrice: '$1,900.00',
-		reviewCount: 34,
-		rating: 4,
-	};
-
 	return (
-		<div className='p-6'>
-			<Box className='max-w-sm border border-gray-200 rounded-lg overflow-hidden'>
-				<Image src={property.imageUrl} alt={property.imageAlt} />
-
-				<Box className='p-6'>
-					<Box className='flex items-baseline'>
-						<Badge
-							className='rounded-full px-2'
-							variant='solid'
-							color='blue-500'
-						>
-							New
-						</Badge>
-						<Box className='text-gray-500 font-medium text-xs tracking-wide uppercase ml-2'>
-							{property.beds} beds &bull; {property.baths} baths
-						</Box>
-					</Box>
-
-					<Box className='mt-3 font-semibold leading-tight' as='h4'>
-						{property.title}
-					</Box>
-
-					<Box>
-						{property.formattedPrice}
-						<Box as='span' className='text-gray-600 text-sm'>
-							/ wk
-						</Box>
-					</Box>
-
-					<Box className='flex mt-2 items-center'>
-						{Array(5)
-							.fill('')
-							.map((_, i) => (
-								<StarIcon
-									key={i}
-									className={
-										i < property.rating ? 'text-blue-500' : 'text-gray-300'
-									}
-								/>
-							))}
-						<Box className='text-gray-600 ml-2 text-sm'>
-							{property.reviewCount} reviews
-						</Box>
-					</Box>
-				</Box>
+		<div className='relative p-4 shadow-xl rounded-2xl max-w-xs m-12'>
+			<div className='relative'>
+				<Image
+					src='https://cutt.ly/2kr8ISb'
+					alt='Two-storey mansion'
+					className='rounded-2xl'
+				/>
+				<Badge
+					variant='solid'
+					color='green-400'
+					className='absolute bottom-3 left-3'
+				>
+					<Hi.HiLightningBolt size='1.2em' className='mr-1 inline-block' />
+					New
+				</Badge>
+				<span className='absolute top-3 right-3'>
+					<IconButton aria-label='Hearth' icon={<Hi.HiHeart />} />
+				</span>
+			</div>
+			<Box className='p-4 font-semibold'>
+				<h3 className='text-xl text-purple-500'>$32,000/month</h3>
+				<h3 className='text-lg mt-2'>Two-storey mansion</h3>
+				<p className='font-normal text-sm opacity-50'>ave, Soborna, 25</p>
 			</Box>
 		</div>
 	);
